@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(pagesDirectory));
 
-MongoClient.connect(MONGODB_URI, { useUnifiedTopology: true })
+MongoClient.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(client => {
         console.log('Connected to MongoDB');
         const db = client.db('MusiConnect');
